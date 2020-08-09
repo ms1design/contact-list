@@ -1,6 +1,6 @@
 import React from "react";
-import apiData from "./api";
-import PersonInfo from "./PersonInfo";
+import apiData from "../../utils";
+import { PersonInfo } from "../PersonInfo";
 
 function App() {
   const [data, setData] = React.useState([]);
@@ -13,7 +13,6 @@ function App() {
       <div className="selected">Selected contacts: {selected.length}</div>
       <div className="list">
         {data.map((personInfo) => (
-          // @ts-ignore
           <PersonInfo key={personInfo.id} data={personInfo} />
         ))}
       </div>
