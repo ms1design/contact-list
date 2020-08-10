@@ -8,13 +8,18 @@ export default function useApi({
 } = {}) {
   const [fetchedData, setFetchedData] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [isAtEnd, setIsAtEnd] = useState(false);
   const [error, setError] = useState(null);
 
   const fetchMore = useCallback(async () => {
     try {
       setLoading(true);
       const nextPage = await apiCallFn();
-      setFetchedData([...fetchedData, ...nextPage]);
+      if (nextPage.length === 0) {
+        setIsAtEnd(true);
+      } else {
+        setFetchedData([...fetchedData, ...nextPage]);
+      }
       setError(null);
     } catch (err) {
       setError(err);
@@ -28,5 +33,5 @@ export default function useApi({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, dependencies);
 
-  return { fetchedData, isLoading, error, fetchMore };
+  return { fetchedData, isLoading, isAtEnd, error, fetchMore };
 }
