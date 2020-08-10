@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import classnames from 'classnames';
+import classnames from "classnames";
 import { apiData, useApi } from "../../utils";
 import { PersonInfo } from "../PersonInfo";
 import "./App.scss";
@@ -11,7 +11,7 @@ function App() {
     apiCallFn: apiData,
   });
 
-  const contactsAddHandler = useCallback(personInfo => () => {
+  const contactsToggleHandler = useCallback(personInfo => () => {
     setSelected(prevSelected => prevSelected.includes(personInfo.id)
       ? prevSelected.filter(id => id !== personInfo.id)
       : [...prevSelected, personInfo.id]);
@@ -54,11 +54,11 @@ function App() {
             className={classnames({
               'is-selected': selected.includes(personInfo.id)
             })}
-            onClick={contactsAddHandler(personInfo)}
+            onClick={contactsToggleHandler(personInfo)}
           />)}
       </section>
-      <div className="loaderWrapper">
-        {error && !isLoading && <div className="errorMessage">{error.message}</div>}
+      <div className="loader-wrapper">
+        {error && !isLoading && <div className="error-message">{error.message}</div>}
         {!isLoading && <button
           onClick={fetchMore}
           className="load-more-btn"

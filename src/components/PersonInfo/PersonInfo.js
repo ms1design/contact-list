@@ -1,5 +1,6 @@
 import React from "react";
-import classnames from 'classnames';
+import { shape, string } from "prop-types";
+import classnames from "classnames";
 import "./PersonInfo.scss";
 
 function PersonInfo({ data, className, ...restProps }) {
@@ -14,5 +15,19 @@ function PersonInfo({ data, className, ...restProps }) {
     </div>
   );
 }
+
+PersonInfo.propTypes = {
+  data: shape({
+    id: string.isRequired,
+    jobTitle: string.isRequired,
+    emailAddress: string.isRequired,
+    firstNameLastName: string.isRequired,
+  }).isRequired,
+  className: string,
+};
+
+PersonInfo.defaultProps = {
+  className: '',
+};
 
 export default PersonInfo;

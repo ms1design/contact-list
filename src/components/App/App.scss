@@ -39,6 +39,14 @@ header {
     & > .person-info {
       margin-right: 1em;
     }
+
+    &:not(:empty)::after {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 100%;
+      flex: 0 0 1px;
+    }
   }
 
   .selected-trigger {
@@ -79,11 +87,11 @@ header {
   font-weight: 500;
 }
 
-.loaderWrapper {
+.loader-wrapper {
   margin: 2em auto;
 }
 
-.errorMessage {
+.error-message {
   color: var(--color-danger);
   margin: 1em auto;
 }
