@@ -1,0 +1,68 @@
+.person-info {
+  position: relative;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  flex-direction: column;
+  padding: 32px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  margin: 10px 0;
+  background: var(--color-white);
+  cursor: pointer;
+
+  .firstNameLastName {
+    padding: 0 0 10px;
+    color: var(--color-text);
+    font-size: 26px;
+    font-weight: 700;
+  }
+
+  .jobTitle {
+    padding: 0 0 20px;
+    color: var(--color-brand);
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .emailAddress {
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.8em;
+  }
+
+  &.is-selected {
+    outline: 2px solid var(--color-brand);
+
+    &::after {
+      position: absolute;
+      top: 5px;
+	    right: 10px;
+      content: "✓";
+      color: var(--color-brand);
+      font-size: 30px;
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+
+  &:hover {
+    outline: 1px solid #888;
+
+    &.in-store {
+      &::after {
+        content: "✕";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        background-color: rgba(255, 255, 255, .9);
+        color: var(--color-danger);
+      }
+    }
+  }
+}
