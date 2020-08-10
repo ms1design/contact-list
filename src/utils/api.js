@@ -1,17 +1,15 @@
-import mockData from "./mockData.json";
+import { mockData } from "../__mock__";
 
 let cursor = -1;
 const size = 10;
 
-function delay(time: number) {
+function delay(time) {
   return new Promise((resolve) => setTimeout(() => resolve(), time));
 }
 
 export default async function apiData() {
   await delay(1000);
-  if (Math.random() > 0.7) {
-    throw new Error("Something went wrong");
-  }
+  if (Math.random() > 0.7) throw new Error("Something went wrong");
   cursor += 1;
   const start = cursor * size;
   const end = cursor * size + size;
