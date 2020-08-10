@@ -1,3 +1,12 @@
+# Solution
+
+1. Fetching data using `apiData` function in `useApi` `hook`.
+2. Used separate states in `useApi` `hook` to handle loading, errors and scroll to end state.
+3. Changed UX logic, to include expanding sticky header, which shows scrollable list of selected contacts.
+4. Selected contacts can be removed by clicking on the selection list or removing them from the "selected cart".
+5. Switched to `scss` preprocessor for styles.
+6. Replaced `inline styles` in `PersonInfo` component.
+
 # TODO
 
 Please do not fork the repo, clone it instead.
